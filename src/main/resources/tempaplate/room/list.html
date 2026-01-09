@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách phòng trọ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Quản Lý Phòng Trọ</h1>
+
+    <a th:href="@{/rooms/new}" class="btn btn-success mb-3">Thêm phòng mới</a>
+
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+        <tr>
+            <th>Mã phòng</th>
+            <th>Diện tích</th>
+            <th>Giá thuê</th>
+            <th>Trạng thái</th>
+            <th>Mô tả</th>
+            <th>Hành động</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="room : ${rooms}">
+            <td th:text="${room.roomNumber}"></td>
+            <td th:text="${room.area} + ' m²'"></td>
+            <td th:text="${#numbers.formatInteger(room.basePrice,0,'COMMA')} + ' VND'"></td>
+            <td>
+                <span class="badge" th:class="${room.rented} ? 'bg-danger' : 'bg-success'"
+                      th:text="${room.rented} ? 'Đã thuê' : 'Trống'"></span>
+            </td>
+            <td th:text="${room.description}"></td>
+            <td>
+                <a th:href="@{/rooms/edit/{id}(id=${room.id})}" class="btn btn-warning btn-sm">Sửa</a>
+                <a th:href="@{/rooms/delete/{id}(id=${room.id})}" class="btn btn-danger btn-sm"
+                   onclick="return confirm('Bạn chắc chắn xóa?')">Xóa</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
