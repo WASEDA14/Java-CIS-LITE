@@ -16,7 +16,7 @@ public class Bill {
     @JoinColumn(name = "contract_id", nullable = false)
     private Contract contract;
 
-    private int month;  // 1-12
+    private int month;
     private int year;
 
     private Double electricityStart;
