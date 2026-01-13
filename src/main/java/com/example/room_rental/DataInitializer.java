@@ -14,7 +14,6 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // Chỉ thêm dữ liệu nếu chưa có
         if (roomService.getAllRooms().isEmpty()) {
             roomService.saveRoom(Room.builder()
                     .roomNumber("P101")
