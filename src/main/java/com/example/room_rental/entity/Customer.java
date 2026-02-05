@@ -6,7 +6,7 @@ import lombok.*;
 @Entity
 @Table(name = "tenants")
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
-public class Tenant {
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -7,7 +7,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "bills")
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
-public class Bill {
+public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

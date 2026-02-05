@@ -14,7 +14,7 @@ public class Contract {
 
     @ManyToOne
     @JoinColumn(name = "tenant_id", nullable = false)
-    private Tenant tenant;
+    private Customer tenant;
 
     @OneToOne
     @JoinColumn(name = "room_id", nullable = false, unique = true)
